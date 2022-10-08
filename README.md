@@ -48,57 +48,57 @@ At the time of publishing this project the `Plutus.Contract.StateMachine` librar
 
 These diagrams represent some of the use cases considered in the contract. For the rest, please check module `Spec.ServiceAgreement`.
 
-<br />
 
-###"As a customer I want to open an offer"
+### *As a customer I want to open an offer*
+
 
 ![](images/plutus-service-agreement_01_open.jpg)
 
 <br />
 
-###"As a customer I want to withdraw an offer previously opened"
+### *As a customer I want to withdraw an offer previously opened*
 
 ![](images/plutus-service-agreement_02_withdraw.jpg)
 
 <br />
 
-###"As a service provider I want to accept an offer"
+### *As a service provider I want to accept an offer*
 
 ![](images/plutus-service-agreement_03_accept.jpg)
 
 <br />
 
-###"As a service provider I want to claim that I've done the job on time"
+### *As a service provider I want to claim that I've done the job on time*
 
 ![](images/plutus-service-agreement_04_job_done.jpg)
 
 <br />
 
-###"As a customer I want to claim that job has not been done on time"
+### *As a customer I want to claim that job has not been done on time*
 
 ![](images/plutus-service-agreement_05_job_not_done.jpg)
 
 <br />
 
-###"As a customer I want to extend jobDoneDeadline after a service provider has accepted the offer"
+### *As a customer I want to extend jobDoneDeadline after a service provider has accepted the offer*
 
 ![](images/plutus-service-agreement_06_extend.jpg)
 
 <br />
 
-###"As a service provider I want to open a dispute"
+### *As a service provider I want to open a dispute*
 
 ![](images/plutus-service-agreement_07_open_dispute.jpg)
 
 <br />
 
-###"As a dispute provider I decide that the customer wins the dispute"
+### *As a dispute provider I decide that the customer wins the dispute*
 
 ![](images/plutus-service-agreement_08_customer_wins.jpg)
 
 <br />
 
-###"As a dispute provider I decide that the service provider wins the dispute"
+### *As a dispute provider I decide that the service provider wins the dispute*
 
 ![](images/plutus-service-agreement_08_sProvider_wins.jpg)
 
@@ -135,11 +135,35 @@ nix-shell> cabal build
 nix-shell> cabal test
 
 # run an scenario in the repl
-nix-shell> cabal repl test-suiteXXXX todo
-nix-shell-repl> import xxx
-nix-shell-repl> runEMulXXX 
+nix-shell> cabal repl repl plutus-service-agreement-test
+nix-shell-repl> import Spec.ServiceAgreement
+# choice a trace from Spec.ServiceAgreement and run it
+nix-shell-repl> runMyTrace servProvJobOnTimeT 
+...
+...
+...
 
-
+Final balances
+Wallet 7: 
+    {, ""}: 100000000000000000
+Wallet 8: 
+    {, ""}: 100000000000000000
+Wallet 6: 
+    {, ""}: 100000000000000000
+Wallet 4: 
+    {, ""}: 100000000000000000
+Wallet 2: 
+    {, ""}: 100000000098607551
+Wallet 1: 
+    {, ""}: 99999999899664546
+Wallet 10: 
+    {, ""}: 100000000000000000
+Wallet 9: 
+    {, ""}: 100000000000000000
+Wallet 3: 
+    {, ""}: 100000000000000000
+Wallet 5: 
+    {, ""}: 100000000000000000
 ```
 <br />
 
