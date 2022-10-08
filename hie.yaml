@@ -1,0 +1,6 @@
+cradle:
+  cabal:
+    - path: "./src"
+      component: "lib:plutus-service-agreement"
+    - path: "./test"
+      component: "test:service-agreement-tests"
