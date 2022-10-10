@@ -2,7 +2,7 @@
 
 ## Subject
 
-This is a toy project with the aim of modelling a service agreement between 2 untrusted parties (customer and service provider) leveraging the Cardano blockchain. The 2 parties would use the blockchain technology provided by Cardano to transact value and set the contract terms (price, collateral, deadlines, etc). Apart from the 2 mentioned parties, we need a third party, the dispute provider who will make a decision on the resolution of the project in case of a dispute. 
+This is a toy project with the aim of modelling a service agreement between 2 untrusted parties (customer and service provider) leveraging the Cardano blockchain. The 2 parties would use the blockchain technology provided by Cardano to transact value and set the contract terms (price, collateral, deadlines, etc). Apart from the 2 mentioned parties, we need a third party, the dispute provider, who will make a decision on the resolution of the contract in case of a dispute. 
 
 This is the final project for the "Cardano developer professional" program by Emurgo Academy. 
 
