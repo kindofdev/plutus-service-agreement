@@ -211,7 +211,7 @@ waitForChangeCustomer client CustomerContext{ ccDeadlineToWait } = do
                     -- In this case match, 'currentState client' should always be
                     -- 'Nothing'.
                     ContractEnded {} -> pure CEFinishedEvent
-                    -- The state machine transitionned to a new state
+                    -- The state machine transitioned to a new state
                     Transition {} -> do
                         optState <- currentState client
                         case optState of
@@ -352,7 +352,7 @@ serviceProviderContract currency params = do
 data ServiceProviderEvent 
     = SPEServiceProviderWantsToAcceptOfferEvent
     | SPEServiceProviderClaimsJobDoneEvent JobDoneProof
-    | SPEServicdProviderWantsToOpenADisputeEvent 
+    | SPEServiceProviderWantsToOpenADisputeEvent 
     | SPEFinishedEvent
     | SPEJobDoneDeadlineExtendedEvent JobDoneDeadline
 
@@ -373,11 +373,11 @@ waitForChangeProvider
 waitForChangeProvider client = do
     let infiniteDeadLine = POSIXTime $ Haskell.toInteger (Haskell.maxBound :: Haskell.Int)
 
-    smUpdatePromise <- SM.waitForUpdateTimeout client (isTime infiniteDeadLine) -- TODOR Check with Roberto if exists a better approach
+    smUpdatePromise <- SM.waitForUpdateTimeout client (isTime infiniteDeadLine) -- TODO Check if exists a better approach
 
     let acceptOffer  = endpoint @"accept-offer"   $ const $ pure SPEServiceProviderWantsToAcceptOfferEvent
         claimJobDone = endpoint @"claim-job-done" $ pure . SPEServiceProviderClaimsJobDoneEvent
-        openDispute  = endpoint @"open-dispute"   $ const $ pure SPEServicdProviderWantsToOpenADisputeEvent
+        openDispute  = endpoint @"open-dispute"   $ const $ pure SPEServiceProviderWantsToOpenADisputeEvent
         wait = do
             promiseBind
                 smUpdatePromise
@@ -458,7 +458,7 @@ handleEventProvider client ctx@ServiceProviderContext{..} event =
                     logError $ NonSenseStateLog (Just s)
                     throwError NoSenseState
 
-        SPEServicdProviderWantsToOpenADisputeEvent -> do 
+        SPEServiceProviderWantsToOpenADisputeEvent -> do 
             logInfo ServiceProviderWantsToOpenADisputeLog
             r <- SM.runStep client OpenDispute
             logInfo RunStepDoneLog

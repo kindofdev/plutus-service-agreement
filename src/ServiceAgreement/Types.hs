@@ -54,7 +54,7 @@ data ServiceAgreementState
     = OfferOpened JobDoneDeadline 
     | OfferAccepted JobDoneDeadline ServiceProvider
     | InDispute ServiceProvider
-    | Finished     -- TODOR Check with Roberto the case keeping info in the final state (ContractEnded is Nothing)
+    | Finished     -- TODO Check the case keeping info in the final state (ContractEnded is Nothing)
     deriving stock (Generic, Haskell.Show, Haskell.Eq)
     deriving anyclass (ToJSON, FromJSON)
 

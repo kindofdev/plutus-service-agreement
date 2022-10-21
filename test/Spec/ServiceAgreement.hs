@@ -92,7 +92,7 @@ customer :: Customer
 customer = mockWalletPaymentPubKeyHash w1
 
 agreement :: BuiltinByteString
-agreement = "This is the agremeent."
+agreement = "This is the agreement."
 
 disputeProvider :: DisputeProvider
 disputeProvider = mockWalletPaymentPubKeyHash w3
